@@ -1,13 +1,11 @@
 import React from 'react';
 import { useFonts } from 'expo-font';
 import { Lato_300Light, Lato_400Regular, Lato_700Bold } from '@expo-google-fonts/lato';
-
 import { ThemeProvider } from 'styled-components';
 import AppLoading from 'expo-app-loading';
 
-
+import { CartProvider } from './src/hooks/cart';
 import theme from './src/styles/theme';
-
 import { Routes } from './src/routes';
 
 export default function App() {
@@ -24,7 +22,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <CartProvider>
         <Routes />
+      </CartProvider>
     </ThemeProvider>
   );
 }
