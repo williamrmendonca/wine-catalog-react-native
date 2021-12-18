@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import { Lato_300Light, Lato_400Regular, Lato_700Bold } from '@expo-google-fonts/lato';
 import { ThemeProvider } from 'styled-components';
@@ -23,6 +24,12 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CartProvider>
+        <StatusBar 
+          barStyle='dark-content' 
+          backgroundColor='transparent'
+          translucent 
+        />
+
         <Routes />
       </CartProvider>
     </ThemeProvider>
