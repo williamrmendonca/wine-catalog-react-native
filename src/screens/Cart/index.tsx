@@ -5,6 +5,8 @@ import { FlatList, View } from 'react-native';
 
 import { useCart } from '../../hooks/cart';
 import { ProductCart } from '../../components/ProductCart';
+import { formatCurrency } from '../../utils/formatCurrency'
+import wineboxPNG from '../../assets/wine-box.png';
 
 import {
     Container,
@@ -23,7 +25,11 @@ import {
     Line,
     CurrencyTotal,
     PriceTotal,
-    ListDivider
+    ListDivider,
+    WrapperEmpty,
+    ImageWineBox,
+    TitleEmpty,
+    SubTitleEmpty
 } from './styles';
 
 export function Cart({ navigation }) {
@@ -50,8 +56,6 @@ export function Cart({ navigation }) {
             return sumTotal
         }, 0);
 
-    const shipping = quantityCart > 0 ? 7 : 0;
-
     return (
         <Container>
             <Header>
@@ -59,7 +63,7 @@ export function Cart({ navigation }) {
                     onPress={() => navigation.goBack()}
                 >
                     <Feather
-                        name="arrow-left"
+                        name="chevron-left"
                         size={30}
                         color={theme.colors.primary}
                     />
@@ -67,64 +71,64 @@ export function Cart({ navigation }) {
 
                 <Info>
                     <Title>
-                        My Cart
+                        Sua WineBox
                     </Title>
-
-                    <Subtitle>
-                        {quantityCart} items
-                    </Subtitle>
+                    {
+                        cart.length > 0 ?
+                            <Subtitle>
+                                {quantityCart} {quantityCart > 1 ? 'itens' : 'item'}
+                            </Subtitle>
+                        : null
+                    }
                 </Info>
 
                 <View style={{ width: 30 }} />
             </Header>
-
-            <Content>
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    data={cart}
-                    keyExtractor={item => item.id.toString()}
-                    contentContainerStyle={{ paddingHorizontal: 30, paddingBottom: 30 }}
-                    ItemSeparatorComponent={() => <ListDivider />}
-                    renderItem={({ item }) =>
-                        <ProductCart 
-                            product={item} 
-                            removeProduct={handleRemoveProduct}
-                            updateProduct={handleUpdateCart}
+            {
+                cart.length > 0 ?
+                <>
+                    <Content>
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            data={cart}
+                            keyExtractor={item => item.id.toString()}
+                            contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 0 }}
+                            ItemSeparatorComponent={() => <ListDivider />}
+                            renderItem={({ item }) =>
+                                <ProductCart 
+                                    product={item} 
+                                    removeProduct={handleRemoveProduct}
+                                    updateProduct={handleUpdateCart}
+                                />
+                            }
                         />
-                    }
-                />
-            </Content>
+                    </Content>
 
-            <Footer>
-                <Wrapper>
-                    <Description>Sub total: </Description>
+                    <Footer>
+                        <Wrapper>
+                            <Description>Total: </Description>
+                            <PriceCotent>
+                                {/* <PriceTotal>{(subTotal).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</PriceTotal> */}
+                                <PriceTotal>{formatCurrency(subTotal)}</PriceTotal>
+                            </PriceCotent>
+                        </Wrapper>
+                    </Footer>
+                </>
+                : 
+                <WrapperEmpty>
+                    <ImageWineBox
+                        source={wineboxPNG}
+                    />
 
-                    <PriceCotent>
-                        <Currency>$</Currency>
-                        <Price>{subTotal.toFixed(2)}</Price>
-                    </PriceCotent>
-                </Wrapper>
-
-                <Wrapper>
-                    <Description>Shipping: </Description>
-
-                    <PriceCotent>
-                        <Currency>$</Currency>
-                        <Price>{shipping.toFixed(2)}</Price>
-                    </PriceCotent>
-                </Wrapper>
-
-                <Line />
-
-                <Wrapper>
-                    <Description>Total: </Description>
-
-                    <PriceCotent>
-                        <CurrencyTotal>$</CurrencyTotal>
-                        <PriceTotal>{(subTotal + shipping).toFixed(2)}</PriceTotal>
-                    </PriceCotent>
-                </Wrapper>
-            </Footer>
+                    <TitleEmpty>
+                        Sua WineBox está vazia.
+                    </TitleEmpty>
+                    <SubTitleEmpty>
+                        Você ainda não adcionou itens à WineBox.{`\n`}
+                        Encontre na Wine produtos que combinem com você.
+                    </SubTitleEmpty>                    
+                </WrapperEmpty>
+            }
         </Container>
     );
 }
