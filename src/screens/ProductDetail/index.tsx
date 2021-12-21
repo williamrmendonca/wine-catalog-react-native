@@ -32,11 +32,15 @@ import {
    WrapperAdd
 } from './styles';
 
+interface onPressProps {
+   onPress: (item: ProductProps) => void;
+}
 
 export function ProductDetail(){
    const theme = useTheme();
    const route = useRoute();
    const { product } = route.params as ProductProps
+   const { onPress } = route.params as onPressProps
    const navigation = useNavigation();
 
    return(
@@ -107,8 +111,8 @@ export function ProductDetail(){
                   
                     <WrapperAdd>
                         <ButtonAdd
-                           onPress={() => navigation.goBack()}
-                           // onPressOut={() => navigation.goBack()}
+                           onPress={() => onPress(product)}
+                           onPressOut={() => navigation.navigate('Cart')}
                         >
                            <TextButtonAdd>
                               Adicionar

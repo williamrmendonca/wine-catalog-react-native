@@ -38,7 +38,7 @@ export function Product({
     const navigation = useNavigation();
 
     function handleOpenProductDetail(product:ProductProps) {
-        navigation.navigate('ProductDetail', { product })
+        navigation.navigate('ProductDetail', { product, onPress })
     }
     
     return (
