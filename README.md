@@ -1,15 +1,18 @@
 <h1 align="center">
-  Nome do Projeto
+  Wine - Front end challenge mobile
 </h1>
 
 <h4 align="center">
-  Descricao simplificada
+  O objetivo deste desafio é avaliar suas habilidades de programação. Quando sua solução estiver pronta, basta responder o e-mail que recebeu com o link do seu repo aqui no Github! Em seguida, enviaremos o feedback e as instruções dos próximos passos!
 </h4>
 
+<p align="center">
+  <img alt="Mobile Application Demo" src="https://github.com/isabelamoraes/handleStore/blob/main/demo/handleStore.gif?raw=true" width="60%">
+</p>
 
 ## UI Design da Aplicação
 
-Aplicação desenvolvida com base no UI Figma [link](https://www.figma.com/file/).
+Aplicação desenvolvida com base no UI Figma [link](https://www.figma.com/file/gByBxI9GBHKUjXRtO2fFh2/28%2F10-%F0%9F%96%A5-%F0%9F%93%B1---Wine-Test---WEB-%26-APP?node-id=680%3A6449).
 
 
 ## Funcionamento
