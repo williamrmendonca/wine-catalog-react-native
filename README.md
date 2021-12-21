@@ -7,7 +7,7 @@
 </h4>
 
 <p align="center">
-  <img alt="Mobile Application Demo" src="https://github.com/isabelamoraes/handleStore/blob/main/demo/handleStore.gif?raw=true" width="60%">
+  <img alt="Mobile Application Demo" src="https://github.com/williamrmendonca/wine-catalog-react-native/blob/master/src/video/wine-rn-demo.gif?raw=true" width="60%">
 </p>
 
 ## UI Design da Aplicação
