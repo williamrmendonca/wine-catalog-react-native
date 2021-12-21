@@ -20,16 +20,16 @@ import {
    ImageFlag,
    InfoText,
    Footer,
-   // ButtonAdd,
-   // TextButtonAdd,
+   ButtonAdd,
+   TextButtonAdd,
    WrapperDiscount,
    TextDiscount,
    TextMember,
    TextPrice,
    TextPriceMember,
    WrapperPrices,
-   PriceContent
-
+   PriceContent,
+   WrapperAdd
 } from './styles';
 
 
@@ -104,6 +104,17 @@ export function ProductDetail(){
                             <TextMember>{formatCurrency(product.priceNonMember)}</TextMember>
                         </PriceContent>
                     </WrapperPrices>
+                  
+                    <WrapperAdd>
+                        <ButtonAdd
+                           onPress={() => navigation.goBack()}
+                           onPressOut={() => navigation.goBack()}
+                        >
+                           <TextButtonAdd>
+                              Adicionar
+                           </TextButtonAdd>
+                        </ButtonAdd>
+                     </WrapperAdd>
 
             </Footer>
       </Container>

@@ -1,4 +1,4 @@
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Pressable, Text } from 'react-native';
 import styled, { css } from 'styled-components/native';
 import { Dimensions } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -170,4 +170,32 @@ export const PriceContent = styled.View`
     /* justify-content: space-evenly; */
     width: 100%;
 
+`;
+
+export const ButtonAdd = styled(Pressable).attrs({
+    activeOpacity: 0.7
+})`
+    align-items: center;
+    justify-content: center;
+
+    height: 48px;
+    margin-bottom: 16px;
+
+    background: ${({ theme }) => theme.colors.success_default};
+    border-radius: 4px;
+`;
+
+export const TextButtonAdd = styled.Text`
+    font-family: ${({ theme }) => theme.fonts.bold};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${RFValue(14)}px;
+    line-height: ${RFValue(18)}px;
+    text-align: center;
+`;
+
+export const WrapperAdd = styled.View`
+    position: absolute;
+    width: 50%;
+    bottom: 0px;
+    right: 16px;
 `;
