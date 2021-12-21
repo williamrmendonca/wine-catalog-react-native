@@ -4,6 +4,7 @@ import { ProductProps } from '../../@types';
 import { Feather } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 import cartPNG from '../../assets/cart.png';
+import { formatCurrency } from '../../utils/formatCurrency'
 
 import {
    Container,
@@ -19,6 +20,16 @@ import {
    ImageFlag,
    InfoText,
    Footer,
+   // ButtonAdd,
+   // TextButtonAdd,
+   WrapperDiscount,
+   TextDiscount,
+   TextMember,
+   TextPrice,
+   TextPriceMember,
+   WrapperPrices,
+   PriceContent
+
 } from './styles';
 
 
@@ -77,7 +88,24 @@ export function ProductDetail(){
                   {product.sommelierComment}
                </Subtitle>
             </WrapperProduct>
-            <Footer></Footer>
+
+            <Footer>
+                  <WrapperPrices>
+                        <WrapperDiscount>
+                           <TextDiscount>{product.discount}% OFF</TextDiscount>
+                        </WrapperDiscount>
+                   
+                        <TextPrice>{formatCurrency(product.price)}</TextPrice>
+                        <PriceContent>
+                            <TextPriceMember>{formatCurrency(product.priceMember)}</TextPriceMember>
+                        </PriceContent>
+                        <PriceContent>
+                            <TextMember>Preço Não sócio  </TextMember>
+                            <TextMember>{formatCurrency(product.priceNonMember)}</TextMember>
+                        </PriceContent>
+                    </WrapperPrices>
+
+            </Footer>
       </Container>
    );
 }

@@ -109,3 +109,65 @@ export const Description = styled.Text`
     font-size: ${RFValue(16)}px;
 `;
 
+
+export const WrapperDiscount = styled.View`
+   width: ${RFValue(65)}px;
+   height: ${RFValue(16)}px;
+   background: ${({ theme }) => theme.colors.secondary};
+   align-items: center;
+   justify-content: center;
+   border-radius: 2px;
+`;
+
+export const TextDiscount = styled.Text`
+    font-family: ${({ theme }) => theme.fonts.bold};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${RFValue(12)}px;
+    line-height: ${RFValue(16)}px;
+    text-align: center;
+`;
+
+export const TextPrice = styled.Text`
+    font-family: ${({ theme }) => theme.fonts.bold};
+    color: ${({ theme }) => theme.colors.text};
+    font-size: ${RFValue(12)}px;
+    line-height: ${RFValue(20)}px;
+    /* text-align: center; */
+    text-decoration: line-through;    
+
+`;
+
+export const TextMember = styled.Text`
+    font-family: ${({ theme }) => theme.fonts.bold};
+    color: ${({ theme }) => theme.colors.text};
+    font-size: ${RFValue(10)}px;
+    line-height: ${RFValue(16)}px;
+    text-align: center;
+    text-transform: uppercase;
+`;
+
+export const TextPriceMember = styled.Text`
+    font-family: ${({ theme }) => theme.fonts.bold};
+    color: ${({ theme }) => theme.colors.price_member};
+    font-size: ${RFValue(24)}px;
+    line-height: ${RFValue(28)}px;
+    text-align: center;
+
+`;
+
+export const WrapperPrices = styled.View`
+    position: absolute;
+    width: 50%;
+    bottom: 8px;
+    left: 16px;
+    /* align-items: center;
+    justify-content: center; */
+`;
+
+export const PriceContent = styled.View`
+    flex-direction: row;
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    width: 100%;
+
+`;
