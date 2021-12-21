@@ -108,7 +108,7 @@ export function ProductDetail(){
                     <WrapperAdd>
                         <ButtonAdd
                            onPress={() => navigation.goBack()}
-                           onPressOut={() => navigation.goBack()}
+                           // onPressOut={() => navigation.goBack()}
                         >
                            <TextButtonAdd>
                               Adicionar
